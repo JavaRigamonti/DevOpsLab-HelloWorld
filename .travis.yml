@@ -1,21 +1,26 @@
-# Linguagem Utilizada para Desenvolver a Aplicação
-language: python
-
-# Versão que a aplicação suporta.
-python:
-  - "3.6.3"
-
-# Instalação de Módulos que são necessários para a Aplicação.
-install:
-  - pip install flask
-
-# Defini o script de Teste que deve rodar toda vez que o código for alterado.
-script:
-  - python test.py
-
-# Defini que o processo de Deploy será na Plataforma Heroku. É necessário informar o nome da APP criada no Heroku
-deploy:
-  provider: heroku
-  api-key: 
-    secure: $HEROKU_API_KEY
-  app: devopslabs-helloword-java
+{
+  "language": "python",
+  "os": [
+    "linux"
+  ],
+  "dist": "xenial",
+  "python": [
+    "3.6.3"
+  ],
+  "install": [
+    "pip install flask"
+  ],
+  "script": [
+    "python test.py"
+  ],
+  "deploy": [
+    {
+      "provider": "heroku",
+      "strategy": "api",
+      "app": "devopslabs-helloword-java",
+      "api_key": {
+        "secure": "$HEROKU_API_KEY"
+      }
+    }
+  ]
+}
